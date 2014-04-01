@@ -2,15 +2,9 @@ $LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__) + '/lib')
 
 use Rack::ShowExceptions
 
-require 'grack'
 require 'git_adapter'
+require 'docserver'
 
-config = {
-  :project_root => "./",
-  :adapter => Grack::GitAdapter,
-  :git_path => '/usr/bin/git',
-  :upload_pack => true,
-  :receive_pack => true,
-}
+config = Grack.load_config('config.yml')
 
-run Grack::App.new(config)
+run Grack::Docserver.new(config)

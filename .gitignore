@@ -1,1 +1,5 @@
-coverage/
+/.bundle/
+/config.yml
+/coverage/
+/Gemfile.lock
+*.swp

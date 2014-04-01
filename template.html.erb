@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= @title %></title>
+
+    <!-- Bootstrap -->
+    <link href="<%= @path + @assets %>/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%= @path + @assets %>/css/local.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="<%= @path + @assets %>/js/html5shiv.js"></script>
+      <script src="<%= @path + @assets %>/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <a class="navbar-brand" href="<%= @path %>">Docserver</a>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+          <% @nav_links.each do |link|%>
+            <li><a href="<%= @path + link[:path] %>"><%= link[:name] %></a></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="jumbotron">
+        <h1><%= @title %></h1>
+        <div class="well well-sm">
+          <%= @breadcrumbs %>
+        </div>
+        <% if @git_base %>
+        <div class="well well-sm">
+          <textarea class="clone">git clone <%= @git_base %></textarea>
+        </div>
+        <% end %>
+        <%= @body %>
+      </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="<%= @path + @assets %>/js/jquery-2.1.0.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="<%= @path + @assets %>/js/bootstrap.min.js"></script>
+  </body>
+</html>
