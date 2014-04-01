@@ -5,6 +5,7 @@ gem "rake"
 gem 'kramdown'
 gem 'coderay'
 gem 'coderay_bash'
+gem 'geminabox'
 
 gem "coveralls", :require => false
 
